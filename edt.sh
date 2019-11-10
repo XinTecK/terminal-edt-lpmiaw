@@ -17,28 +17,28 @@ load_config () {
   do
     varname=$(echo "$line" | cut -d '=' -f 1)
     config[$varname]=$(echo "$line" | cut -d '=' -f 2-)
-  done < $HOME/.agenda-lpmiaw/config
+  done < $HOME/.edt-lpmiaw/config
 }
 
 init () {
   # Check if config directory exists
-  if ! [ -d $HOME/.agenda-lpmiaw ]
+  if ! [ -d $HOME/.edt-lpmiaw ]
   then
-    mkdir $HOME/.agenda-lpmiaw
+    mkdir $HOME/.edt-lpmiaw
   fi
   # Check if config file exists
-  if [ -e $HOME/.agenda-lpmiaw/config ]
+  if [ -e $HOME/.edt-lpmiaw/config ]
   then
     load_config
-    load_agenda
+    load_edt
   else
     read -p "Entrez votre identifiant: " config[username]
-    echo "username=${config[username]}" >> $HOME/.agenda-lpmiaw/config
-    load_agenda
+    echo "username=${config[username]}" >> $HOME/.edt-lpmiaw/config
+    load_edt
   fi
 }
 
-load_agenda () {
+load_edt () {
 
   url="http://apps.univ-lr.fr/apps/sp/wa/ics?login=${config[username]}"
 
@@ -51,8 +51,8 @@ load_agenda () {
   next_5_day_date=$(date --date="5 day" +"%Y%m%d")
   next_6_day_date=$(date --date="6 day" +"%Y%m%d")
 
-  # Get agenda file
-  wget -qO - $url > $HOME/.agenda-lpmiaw/agenda
+  # Get edt file
+  wget -qO - $url > $HOME/.edt-lpmiaw/edt
 
   # Display next week classes
   load_day $next_6_day_date
@@ -63,7 +63,7 @@ load_agenda () {
   load_day $next_1_day_date
   load_day $current_day_date
   
-  rm $HOME/.agenda-lpmiaw/agenda
+  rm $HOME/.edt-lpmiaw/edt
 }
 
 # [Parameter] day_date => string (ex: "20191110T093500")
@@ -77,7 +77,7 @@ load_day () {
   echo "------------------"
 
   # Foreach tasks for the specific day
-  grep -A 2 "DTSTART;TZID=Europe/Paris:${day_date}" $HOME/.agenda-lpmiaw/agenda | while read -r line; do
+  grep -A 2 "DTSTART;TZID=Europe/Paris:${day_date}" $HOME/.edt-lpmiaw/edt | while read -r line; do
     if [ "$line" != "--" ]
     then
       if [ $index == 0 ] # Class start time => DTSTART
