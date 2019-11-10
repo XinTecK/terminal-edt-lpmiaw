@@ -16,10 +16,10 @@ Ce programme est développé en shell script et est à destination des systèmes
 
 ### Auteur
 Hugo Lefrancq :  
-[Website](https://hugolefrancq.fr)  
+[Site Web](https://hugolefrancq.fr)  
 [Twitter](https://twitter.com/xinteck_)  
 [LinkedIn](https://www.linkedin.com/in/hugo-lefrancq-b78ba5155/)
 
-### Licence:fr:/License:us:
+### Licence:
 lpmiaw-terminal-agenda est sous la [licence GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html), voir le fichier "LICENSE".
 
