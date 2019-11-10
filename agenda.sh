@@ -17,18 +17,23 @@ load_config () {
   do
     varname=$(echo "$line" | cut -d '=' -f 1)
     config[$varname]=$(echo "$line" | cut -d '=' -f 2-)
-  done < .config
+  done < $HOME/.agenda-lpmiaw/config
 }
 
 init () {
+  # Check if config directory exists
+  if ! [ -d $HOME/.agenda-lpmiaw ]
+  then
+    mkdir $HOME/.agenda-lpmiaw
+  fi
   # Check if config file exists
-  if [ -e .config ]
+  if [ -e $HOME/.agenda-lpmiaw/config ]
   then
     load_config
     load_agenda
   else
     read -p "Entrez votre identifiant: " config[username]
-    echo "username=${config[username]}" >> .config
+    echo "username=${config[username]}" >> $HOME/.agenda-lpmiaw/config
     load_agenda
   fi
 }
@@ -47,7 +52,7 @@ load_agenda () {
   next_6_day_date=$(date --date="6 day" +"%Y%m%d")
 
   # Get agenda file
-  wget -qO - $url > .agenda
+  wget -qO - $url > $HOME/.agenda-lpmiaw/agenda
 
   # Display next week classes
   load_day $next_6_day_date
@@ -58,7 +63,7 @@ load_agenda () {
   load_day $next_1_day_date
   load_day $current_day_date
   
-  rm .agenda
+  rm $HOME/.agenda-lpmiaw/agenda
 }
 
 # [Parameter] day_date => string (ex: "20191110T093500")
@@ -72,7 +77,7 @@ load_day () {
   echo "------------------"
 
   # Foreach tasks for the specific day
-  grep -A 2 "DTSTART;TZID=Europe/Paris:${day_date}" .agenda | while read -r line; do
+  grep -A 2 "DTSTART;TZID=Europe/Paris:${day_date}" $HOME/.agenda-lpmiaw/agenda | while read -r line; do
     if [ "$line" != "--" ]
     then
       if [ $index == 0 ] # Class start time => DTSTART
