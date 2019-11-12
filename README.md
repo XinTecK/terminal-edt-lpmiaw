@@ -7,7 +7,7 @@ Celui-ci a été développé en shell et a pour but d'avoir un aperçu visuel de
 Son objectif est donc de simplifier la vie des étudiants, des professeurs, et des mordus d'interface terminal (comme moi) de la LP MIAW de La Rochelle afin de pouvoir directement consulter l'EDT depuis le terminal, le tout avec une petit interface de type ASCII art.
 
 ## Dépendances
-- wget  
+- **wget**  
 `sudo apt-get install wget` pour Linux (Debian/Ubuntu)  
 `brew install wget` pour Mac (https://brew.sh/index_fr)  
 
