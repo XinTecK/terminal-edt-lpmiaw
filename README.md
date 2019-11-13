@@ -6,11 +6,16 @@ Celui-ci a été développé en shell et a pour but d'avoir un aperçu visuel de
 
 Son objectif est donc de simplifier la vie des étudiants, des professeurs, et des mordus d'interface terminal (comme moi) de la LP MIAW de La Rochelle afin de pouvoir directement consulter l'EDT depuis le terminal, le tout avec une petit interface de type ASCII art.
 
+## Dépendances
+- **wget**  
+`sudo apt-get install wget` pour Linux (Debian/Ubuntu)  
+`brew install wget` pour Mac (https://brew.sh/index_fr)  
+
 ## Comment l'installer
 1.  `git clone https://github.com/XinTecK/terminal-edt-lpmiaw`
 2.  `cd terminal-edt-lpmiaw`
 3.  `./edt.sh`
-4.  (facultatif => Création d'un lien symbolic pour pouvoir lancer l'edt juste en tapant `edt` n'importe où depuis son terminal) `sudo ln -s /mon/chemin/a/edt/edt.sh /usr/bin/edt`
+4.  (facultatif => Création d'un lien symbolique pour pouvoir lancer l'edt juste en tapant `edt` n'importe où depuis son terminal) `sudo ln -s /mon/chemin/a/edt/edt.sh /usr/bin/edt`
 
 Ce programme est développé en shell script et est à destination des systèmes d'explotations basés sur Unix (Linux pour sûr, Mac pas encore testé)
 
