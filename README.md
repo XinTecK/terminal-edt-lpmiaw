@@ -10,14 +10,18 @@ Son objectif est donc de simplifier la vie des étudiants, des professeurs, et d
 - **wget**  
 `sudo apt-get install wget` pour Linux (Debian/Ubuntu)  
 `brew install wget` pour Mac (https://brew.sh/index_fr)  
+- **coreutils** (Pour Mac)  
+`brew install coreutils`
 
 ## Comment l'installer
 1.  `git clone https://github.com/XinTecK/terminal-edt-lpmiaw`
 2.  `cd terminal-edt-lpmiaw`
 3.  `./edt.sh`
-4.  (facultatif => Création d'un lien symbolique pour pouvoir lancer l'edt juste en tapant `edt` n'importe où depuis son terminal) `sudo ln -s /mon/chemin/a/edt/edt.sh /usr/bin/edt`
+4.  (facultatif => Création d'un lien symbolique pour pouvoir lancer l'edt juste en tapant `edt` n'importe où depuis son terminal):  
+**Pour Linux:** `sudo ln -s /mon/chemin/vers/edt/edt.sh /usr/bin/edt`  
+**Pour Mac:** `sudo ln -s /mon/chemin/vers/edt/edt.sh /usr/local/bin/edt`
 
-Ce programme est développé en shell script et est à destination des systèmes d'explotations basés sur Unix (Linux pour sûr, Mac pas encore testé)
+Ce programme est développé en shell script et est à destination des systèmes d'explotations basés sur Unix (Linux et Mac)
 
 ### Auteur
 Hugo Lefrancq :  
