@@ -7,6 +7,7 @@ config=(
 )
 
 # Init variables
+ostype=$(echo $OSTYPE)
 class_date=""
 class_start_time=""
 class_end_time=""
@@ -44,12 +45,22 @@ load_edt () {
 
   # Set next week dates variables
   current_day_date=$(date +"%Y%m%d")
-  next_1_day_date=$(date --date="1 day" +"%Y%m%d")
-  next_2_day_date=$(date --date="2 day" +"%Y%m%d")
-  next_3_day_date=$(date --date="3 day" +"%Y%m%d")
-  next_4_day_date=$(date --date="4 day" +"%Y%m%d")
-  next_5_day_date=$(date --date="5 day" +"%Y%m%d")
-  next_6_day_date=$(date --date="6 day" +"%Y%m%d")
+  if [[ "$ostype" =~ darwin* ]] # gdate for Mac, date for Linux => --date flag compatibility
+  then
+    next_1_day_date=$(gdate --date="1 day" +"%Y%m%d")
+    next_2_day_date=$(gdate --date="2 day" +"%Y%m%d")
+    next_3_day_date=$(gdate --date="3 day" +"%Y%m%d")
+    next_4_day_date=$(gdate --date="4 day" +"%Y%m%d")
+    next_5_day_date=$(gdate --date="5 day" +"%Y%m%d")
+    next_6_day_date=$(gdate --date="6 day" +"%Y%m%d")
+  else
+    next_1_day_date=$(date --date="1 day" +"%Y%m%d")
+    next_2_day_date=$(date --date="2 day" +"%Y%m%d")
+    next_3_day_date=$(date --date="3 day" +"%Y%m%d")
+    next_4_day_date=$(date --date="4 day" +"%Y%m%d")
+    next_5_day_date=$(date --date="5 day" +"%Y%m%d")
+    next_6_day_date=$(date --date="6 day" +"%Y%m%d")
+  fi
 
   # Get edt file
   wget -qO - $url > $HOME/.edt-lpmiaw/edt
