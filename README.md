@@ -4,7 +4,10 @@ lpmiaw-terminal-agenda est un petit programme permettant d'accéder très rapide
 
 Celui-ci a été développé en shell et a pour but d'avoir un aperçu visuel de son emploi du temps (jusqu'à une semaine) directement depuis son terminal. 
 
-Son objectif est donc de simplifier la vie des étudiants, des professeurs, et des mordus d'interface terminal (comme moi) de la LP MIAW de La Rochelle afin de pouvoir directement consulter l'EDT depuis le terminal, le tout avec une petit interface de type ASCII art.
+Son objectif est donc de simplifier la vie des étudiants, des professeurs, et des mordus d'interface terminal (comme moi) de la LP MIAW de La Rochelle afin de pouvoir directement consulter l'EDT depuis le terminal, le tout avec une petit interface de type ASCII art.  
+
+## Aperçu
+![edt-lpmiaw](https://user-images.githubusercontent.com/43551457/74018836-e559a180-4996-11ea-94ae-13005fb0cb9d.png)
 
 ## Dépendances
 - **wget**  
